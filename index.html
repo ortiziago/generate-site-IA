@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AI Website Builder</title>
+    <link rel="icon" href="src/assets/logo.png" type="favicon.ico" />
+    <link rel="stylesheet" href="src/css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/5d5f432867.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <main class="container">
+      <section class="hero">
+        <div class="hero-glow"></div>
+        <div class="badge">
+          <p>Gerador com Inteligência Artificial</p>
+        </div>
+        <h1>
+          Crie sites <span>profissionais</span><br />
+          em segundos
+        </h1>
+        <small
+          >Descreva sua ideia e a IA cria um site completo, moderno e responsivo
+          automaticamente.</small
+        >
+
+        <div class="inbox">
+          <textarea
+            class="textarea"
+            placeholder="Ex: Crie um site para um cafeteria moderna com cardápio e contato..."
+            rows="1"
+          ></textarea>
+          <div class="textarea-footer">
+            <button class="btn-send">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="suggestions">
+          <button
+            class="suggestion-chip"
+            data-prompt="Crie uma landing page para uma startup de [Ex: tecnologia]"
+          >
+            <i class="fa-solid fa-rocket"></i> Landing Page
+          </button>
+          <button
+            class="suggestion-chip"
+            data-prompt="Crie um portfólio profissional para um [Ex: designer]"
+          >
+            <i class="fa-solid fa-palette"></i> Portfólio
+          </button>
+          <button
+            class="suggestion-chip"
+            data-prompt="Crie um e-commerce para loja de [Ex: roupas]"
+          >
+            <i class="fa-solid fa-store"></i> E-commerce
+          </button>
+          <button
+            class="suggestion-chip"
+            data-prompt="Crie um blog moderno com sistema de [Ex: categorias]"
+          >
+            <i class="fa-solid fa-newspaper"></i> Blog
+          </button>
+        </div>
+      </section>
+
+      <section class="features">
+        <h2>Por que escolher o <span>BuilderAI</span> ?</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon blue">
+              <i class="fa-solid fa-bolt"></i>
+            </div>
+            <h3>Ultra Rápido</h3>
+            <p>
+              Gere sites completos em menos de 30 segundos com nossa IA
+              avançada.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon green">
+              <i class="fa-solid fa-code"></i>
+            </div>
+            <h3>Código Limpo</h3>
+            <p>Código HTML, CSS e JS organizado e pronto para personalizar.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon orange">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+            <h3>Design Moderno</h3>
+            <p>Layouts profissionais com as últimas tendências de UI/UX.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- <i class="fa-solid fa-mobile-screen"></i> Tela celular -->
+      <!-- <i class="fa-solid fa-dFesktop"></i> Tela desktop -->
+
+      <section class="result">
+        <div class="result-header">
+          <h2>Resultado em <span>tempo real</span></h2>
+          <p>Veja o código e preview do seu site instantaneamente.</p>
+        </div>
+        <div class="tabs">
+          <button class="btn-tab active">
+            <i class="fa-solid fa-code"></i> Código
+          </button>
+          <button class="btn-tab">
+            <i class="fa-solid fa-display"></i> Preview
+          </button>
+        </div>
+
+        <div class="tab-content" id="codeTab">
+          <div class="tab-content-header">
+            <div class="name-tab">
+              <div class="dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <span class="filename">index.html</span>
+            </div>
+            <button id="btnCopy" class="btn-copy">
+              <i class="fa-regular fa-copy"></i> Copiar
+            </button>
+          </div>
+          <div class="code-body">
+            <pre><code id="codeOutput" class="placeholder-code">
+              // Seu código gerado aparecerá aqui
+              // Digite um prompt acima e clique em gerar 
+            </code></pre>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="src/js/textarea.js"></script>
+  </body>
+</html>
