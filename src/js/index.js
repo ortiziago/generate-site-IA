@@ -3,7 +3,12 @@ const btnSend = document.querySelector(".btn-send");
 
 const suggestions = document.querySelectorAll(".suggestion-chip");
 
-const btnTab = document.querySelectorAll(".btn-tab");
+const btnTabs = document.querySelectorAll(".btn-tab");
+const tabContents = document.querySelectorAll(".tab-content");
+
+const dot = document.querySelector(".dot-glow");
+let mouseX = 0;
+let mouseY = 0;
 
 function autoResizeAndBtnBlocked() {
   textarea.style.height = "auto";
@@ -23,6 +28,13 @@ function autoResizeAndBtnBlocked() {
   }
 }
 
+function animationMoveMouse() {
+  dot.style.left = mouseX + "px";
+  dot.style.top = mouseY + "px";
+
+  requestAnimationFrame(animationMoveMouse);
+}
+
 btnSend.classList.add("blocked");
 textarea.addEventListener("input", () => {
   autoResizeAndBtnBlocked();
@@ -36,12 +48,31 @@ suggestions.forEach((chip) => {
   });
 });
 
-btnTab.forEach((btn) => {
+document.addEventListener("mousemove", (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+
+animationMoveMouse();
+
+btnTabs.forEach((btn) => {
   btn.addEventListener("click", () => {
-    btnTab.forEach((item) => {
+    const currentTab = btn.getAttribute("data-tab");
+
+    btnTabs.forEach((item) => {
       item.classList.remove("active");
     });
 
     btn.classList.add("active");
+
+    tabContents.forEach((content) => {
+      content.style.display = "none";
+    });
+
+    const targetTab = document.querySelector(
+      `.tab-content[data-tab="${currentTab}"]`,
+    );
+
+    targetTab.style.display = "flex";
   });
 });

@@ -12,6 +12,7 @@
   </head>
 
   <body>
+    <div class="dot-glow"></div>
     <main class="container">
       <section class="hero">
         <div class="hero-glow"></div>
@@ -72,7 +73,7 @@
         <h2>Por que escolher o <span>BuilderAI</span> ?</h2>
         <div class="features-grid">
           <div class="feature-card">
-            <div class="feature-icon blue">
+            <div class="feature-icon purple">
               <i class="fa-solid fa-bolt"></i>
             </div>
             <h3>Ultra Rápido</h3>
@@ -80,6 +81,13 @@
               Gere sites completos em menos de 30 segundos com nossa IA
               avançada.
             </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon blue">
+              <i class="fa-solid fa-mobile-screen"></i>
+            </div>
+            <h3>100% Responsivo</h3>
+            <p>Seus sites funcionam perfeitamente em qualquer dispositivo ou tela.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon green">
@@ -107,15 +115,15 @@
           <p>Veja o código e preview do seu site instantaneamente.</p>
         </div>
         <div class="tabs">
-          <button class="btn-tab active">
+          <button class="btn-tab active" data-tab="code">
             <i class="fa-solid fa-code"></i> Código
           </button>
-          <button class="btn-tab">
+          <button class="btn-tab" data-tab="preview">
             <i class="fa-solid fa-display"></i> Preview
           </button>
         </div>
 
-        <div class="tab-content" id="codeTab">
+        <div class="tab-content" id="codeTab" data-tab="code">
           <div class="tab-content-header">
             <div class="name-tab">
               <div class="dots">
@@ -125,20 +133,42 @@
               </div>
               <span class="filename">index.html</span>
             </div>
-            <button id="btnCopy" class="btn-copy">
+            <button id="btnCopy" class="btn-content">
               <i class="fa-regular fa-copy"></i> Copiar
             </button>
           </div>
           <div class="code-body">
             <pre><code id="codeOutput" class="placeholder-code">
-              // Seu código gerado aparecerá aqui
-              // Digite um prompt acima e clique em gerar 
-            </code></pre>
+// Seu código gerado aparecerá aqui
+// Digite um prompt acima e clique em gerar </code></pre>
           </div>
+        </div>
+
+        <div class="tab-content" id="previewTab" data-tab="preview" style="display: none">
+          <div class="tab-content-header">
+            <div class="devices">
+              <button class="btn-device active">
+                <i class="fa-solid fa-desktop"></i> Desktop
+              </button>
+              <button class="btn-device">
+                <i class="fa-solid fa-mobile"></i> Mobile
+              </button>
+            </div>
+            <button id="btnRefresh" class="btn-content">
+              <i class="fa-solid fa-arrows-rotate"></i> Recarregar
+            </button>
+          </div>
+          <div class="preview-body">
+          <div class="preview-placeholder">
+            <i class="fa-solid fa-eye"></i>
+            <p>Preview do site aparecerá aqui</p>
+          </div>
+          <iframe frameborder="0" class="iframe"> </iframe>
         </div>
       </section>
     </main>
 
-    <script src="src/js/textarea.js"></script>
+    <script src="src/js/index.js"></script>
+    <script src="src/js/request-ia.js"></script>
   </body>
 </html>
