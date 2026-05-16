@@ -12,6 +12,11 @@
   </head>
 
   <body>
+    <div class="message">
+      <h1 class="message-title"></h1>
+      <p class="message-description"></p>
+      <div class="message-time"></div>
+    </div>
     <div class="dot-glow"></div>
     <main class="container">
       <section class="hero">
@@ -87,7 +92,10 @@
               <i class="fa-solid fa-mobile-screen"></i>
             </div>
             <h3>100% Responsivo</h3>
-            <p>Seus sites funcionam perfeitamente em qualquer dispositivo ou tela.</p>
+            <p>
+              Seus sites funcionam perfeitamente em qualquer dispositivo ou
+              tela.
+            </p>
           </div>
           <div class="feature-card">
             <div class="feature-icon green">
@@ -120,7 +128,7 @@
           </button>
         </div>
 
-        <div class="tab-content" data-tab="code">
+        <div class="tab-content active" data-tab="code">
           <div class="tab-content-header">
             <div class="name-tab">
               <div class="dots">
@@ -141,7 +149,7 @@
           </div>
         </div>
 
-        <div class="tab-content" data-tab="preview" style="display: none">
+        <div class="tab-content" data-tab="preview">
           <div class="tab-content-header">
             <div class="devices">
               <button class="btn-device active">
@@ -156,11 +164,12 @@
             </button>
           </div>
           <div class="preview-body">
-          <div class="preview-placeholder">
-            <i class="fa-solid fa-eye"></i>
-            <p>Preview do site aparecerá aqui</p>
+            <div class="preview-placeholder active">
+              <i class="fa-solid fa-eye"></i>
+              <p>Preview do site aparecerá aqui</p>
+            </div>
+            <iframe frameborder="0" class="iframePreview" id="iframe"> </iframe>
           </div>
-          <iframe frameborder="0" class="iframePreview" id="iframe"> </iframe>
         </div>
       </section>
 
@@ -168,15 +177,19 @@
         <div class="footer-content">
           <div class="footer-logo">
             <div class="logo-img">
-              <img src="src/assets/logo.png">
+              <img src="src/assets/logo.png" />
             </div>
-              <span>BuilderIA</span>
+            <span>BuilderIA</span>
           </div>
-            <p>&copy; <span id="currentYear"></span> <span class="website-name">BuilderAI</span>. Todos os direitos reservados.</p>
+          <p>
+            &copy; <span id="currentYear"></span>
+            <span class="website-name">BuilderAI</span>. Todos os direitos
+            reservados.
+          </p>
         </div>
       </footer>
     </main>
 
-    <script src="src/js/script.js"></script>
+    <script type="module" src="src/js/scripts.js"></script>
   </body>
 </html>
