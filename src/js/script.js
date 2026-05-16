@@ -1,9 +1,13 @@
 const textarea = document.querySelector(".textarea");
 const btnSend = document.querySelector(".btn-send");
 
+const codeOutput = document.getElementById("codeOutput");
+const iframePreview = document.getElementById("iframePreview");
+
 const suggestions = document.querySelectorAll(".suggestion-chip");
 
 const btnTabs = document.querySelectorAll(".btn-tab");
+const btnTab = document.querySelector(".btn-tab");
 const tabContents = document.querySelectorAll(".tab-content");
 
 const dotGlow = document.querySelector(".dot-glow");
@@ -56,8 +60,14 @@ suggestions.forEach((chip) => {
 });
 
 document.addEventListener("mousemove", (e) => {
+  dotGlow.style.opacity = "1";
   mouseX = e.clientX;
   mouseY = e.clientY;
+
+  if (distanceDotGlowX === 0 && distanceDotGlowY === 0) {
+    distanceDotGlowX = mouseX;
+    distanceDotGlowY = mouseY;
+  }
 });
 
 btnTabs.forEach((btn) => {
@@ -82,5 +92,17 @@ btnTabs.forEach((btn) => {
   });
 });
 
+btnSend.addEventListener("click", async () => {
+  btnSend.classList.add("loading");
+
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+
+  btnSend.classList.remove("loading");
+
+  btnTab.scrollIntoView({
+    block: "start",
+  });
+});
+
 animationMoveMouse();
-currentYear.innerHTML = new Date().getFullYear();
+currentYear.innerHTML = new Date().getFullYear(); 

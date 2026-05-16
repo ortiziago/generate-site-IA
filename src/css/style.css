@@ -97,6 +97,7 @@ body {
   left: 0;
   transform: translate(-50%, -45%);
   pointer-events: none;
+  opacity: 0;
   z-index: 10000;
   width: 50px;
   height: 50px;
@@ -248,7 +249,6 @@ body {
   box-shadow: var(--shadow-blue-md);
   transform: scale(1.05);
 }
-
 .inbox .btn-send:after {
   position: absolute;
   content: "Enviar prompt";
@@ -284,6 +284,33 @@ body {
 
 .inbox .btn-send.blocked:after {
   display: none;
+}
+
+.inbox .btn-send.loading {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.8;
+  color: transparent;
+}
+
+.inbox .btn-send.loading::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  transform: translate(-50%, -50%);
+  border: 3px solid var(--white);
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: btnSendSpin 0.8s linear infinite;
+}
+
+@keyframes btnSendSpin {
+ to{
+  transform: translate(-50%, -50%) rotate(360deg);
+ }
 }
 
 .suggestions {
