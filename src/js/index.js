@@ -6,9 +6,14 @@ const suggestions = document.querySelectorAll(".suggestion-chip");
 const btnTabs = document.querySelectorAll(".btn-tab");
 const tabContents = document.querySelectorAll(".tab-content");
 
-const dot = document.querySelector(".dot-glow");
+const dotGlow = document.querySelector(".dot-glow");
+
+const currentYear = document.getElementById("currentYear");
+
 let mouseX = 0;
 let mouseY = 0;
+let distanceDotGlowX = 0;
+let distanceDotGlowY = 0;
 
 function autoResizeAndBtnBlocked() {
   textarea.style.height = "auto";
@@ -29,8 +34,10 @@ function autoResizeAndBtnBlocked() {
 }
 
 function animationMoveMouse() {
-  dot.style.left = mouseX + "px";
-  dot.style.top = mouseY + "px";
+  distanceDotGlowX += (mouseX - distanceDotGlowX) * 0.1;
+  distanceDotGlowY += (mouseY - distanceDotGlowY) * 0.1;
+
+  dotGlow.style.transform = `translate(${distanceDotGlowX}px, ${distanceDotGlowY}px) translate(-50%, -45%)`;
 
   requestAnimationFrame(animationMoveMouse);
 }
@@ -53,8 +60,6 @@ document.addEventListener("mousemove", (e) => {
   mouseY = e.clientY;
 });
 
-animationMoveMouse();
-
 btnTabs.forEach((btn) => {
   btn.addEventListener("click", () => {
     const currentTab = btn.getAttribute("data-tab");
@@ -76,3 +81,6 @@ btnTabs.forEach((btn) => {
     targetTab.style.display = "flex";
   });
 });
+
+animationMoveMouse();
+currentYear.innerHTML = new Date().getFullYear();
