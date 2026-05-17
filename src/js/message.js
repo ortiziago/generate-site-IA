@@ -1,5 +1,6 @@
-const message = document.querySelector(".message");
-const messageTitle = document.querySelector(".message-title");
-const messageDescription = document.querySelector(".message-description");
-const messageTime = document.querySelector(".message-time");
-
+import {
+  message,
+  messageTitle,
+  messageDescription,
+  messageTime,
+} from "./global-variables.js";

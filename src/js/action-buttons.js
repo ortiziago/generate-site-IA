@@ -1,15 +1,6 @@
-import { codeOutput } from "./request-ia.js";
-
-export const btnCopy = document.querySelector(".btn-copy");
-const originIcon = `<i class="fa-regular fa-copy"></i> Copiar`;
-const checkIcon = `<i class="fa-solid fa-check"></i> Copiado`;
-
-let isCopying = false;
-
-export const btnRefresh = document.querySelector(".btn-refresh");
+import { btnCopy, state } from "./global-variables.js";
 
 function showSucess() {
-  btnCopy.innerHTML = checkIcon;
   btnCopy.disabled = true;
   btnCopy.classList.add("copied");
 
@@ -21,9 +12,9 @@ function showSucess() {
 }
 
 btnCopy.addEventListener("click", async () => {
-  if (isCopying) return;
+  if (state.isCopying) return;
   try {
-    isCopying = true;
+    state.isCopying = true;
     const text = codeOutput.textContent.trim() || "";
 
     await navigator.clipboard.writeText(text);
@@ -31,6 +22,6 @@ btnCopy.addEventListener("click", async () => {
   } catch (e) {
     console.log("Erro ao copiar");
   } finally {
-    isCopying = false;
+    state.isCopying = false;
   }
 });

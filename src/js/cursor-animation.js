@@ -1,28 +1,23 @@
-const dotGlow = document.querySelector(".dot-glow");
-
-let mouseX = 0;
-let mouseY = 0;
-let distanceDotGlowX = 0;
-let distanceDotGlowY = 0;
+import { dotGlow, state } from "./global-variables.js";
 
 function animationMoveMouse() {
-  if (distanceDotGlowX === 0 && distanceDotGlowY === 0) {
-    distanceDotGlowX = mouseX;
-    distanceDotGlowY = mouseY;
+  if (state.distanceDotGlowX === 0 && state.distanceDotGlowY === 0) {
+    state.distanceDotGlowX = state.mouseX;
+    state.distanceDotGlowY = state.mouseY;
   }
 
-  distanceDotGlowX += (mouseX - distanceDotGlowX) * 0.12;
-  distanceDotGlowY += (mouseY - distanceDotGlowY) * 0.12;
+  state.distanceDotGlowX += (state.mouseX - state.distanceDotGlowX) * 0.12;
+  state.distanceDotGlowY += (state.mouseY - state.distanceDotGlowY) * 0.12;
 
-  dotGlow.style.transform = `translate(${distanceDotGlowX}px, ${distanceDotGlowY}px) translate(-50%, -45%)`;
+  dotGlow.style.transform = `translate(${state.distanceDotGlowX}px, ${state.distanceDotGlowY}px) translate(-50%, -45%)`;
 
   requestAnimationFrame(animationMoveMouse);
 }
 
 document.addEventListener("mousemove", (e) => {
   dotGlow.style.opacity = "1";
-  mouseX = e.clientX;
-  mouseY = e.clientY;
+  state.mouseX = e.clientX;
+  state.mouseY = e.clientY;
 });
 
 animationMoveMouse();

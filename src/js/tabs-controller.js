@@ -1,5 +1,4 @@
-const btnTabs = document.querySelectorAll(".btn-tab");
-const tabContents = document.querySelectorAll(".tab-content");
+import { btnTabs, tabContents } from "./global-variables.js";
 
 btnTabs.forEach((btn) => {
   btn.addEventListener("click", () => {

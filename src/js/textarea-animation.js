@@ -1,7 +1,4 @@
-export const textarea = document.querySelector(".textarea");
-export const btnSend = document.querySelector(".btn-send");
-
-const suggestions = document.querySelectorAll(".suggestion-chip");
+import { textarea, btnSend, suggestions } from "./global-variables.js";
 
 function autoResizeAndBtnBlocked() {
   textarea.style.height = "auto";

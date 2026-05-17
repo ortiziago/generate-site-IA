@@ -584,6 +584,11 @@ body {
   color: var(--color-text-gray);
   gap: 6px;
   transition: var(--transition);
+  pointer-events: none;
+}
+
+.tab-content-header .btn-device.pointer-active {
+  pointer-events: all;
 }
 
 .tab-content-header .btn-device.active {
@@ -596,6 +601,20 @@ body {
   color: var(--blue-500);
   background-color: var(--blue-hover);
   border-color: var(--blue-900);
+}
+
+.tab-content-header .responsive-options {
+  display: none;
+  margin-right: 100px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  height: 40px;
+  color: var(--black-900);
+  font-weight: 500;
+}
+
+.tab-content-header .responsive-options.active {
+  display: flex;
 }
 
 .tab-content-header .name-tab {
@@ -666,9 +685,9 @@ body {
 }
 
 .btn-copy.copied {
-  color: var(--feature-green-color);
-  background-color: var(--feature-green-bg);
-  border: 1px solid var(--feature-green-color);
+  color: var(--feature-green-color) !important;
+  background-color: var(--feature-green-bg) !important;
+  border: 1px solid var(--feature-green-color) !important;
 }
 
 .tab-content .code-body {
@@ -696,12 +715,15 @@ body {
 }
 
 .preview-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   width: 100%;
   height: 620px;
 }
 
-.preview-placeholder {
+.preview-body .preview-placeholder {
   position: absolute;
   inset: 0;
   top: -30px;
@@ -726,6 +748,22 @@ body {
   width: 100%;
   height: 100%;
   z-index: 1;
+}
+
+.iframePreview.mobile {
+  border-radius: 12px;
+}
+
+.iframePreview.mobile.small {
+  width: 400px;
+}
+
+.iframePreview.mobile.medium {
+  width: 500px;
+}
+
+.iframePreview.mobile.large {
+  width: 600px;
 }
 
 .footer {
