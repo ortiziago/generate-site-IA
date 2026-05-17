@@ -6,7 +6,7 @@ export const previewPlaceholder = document.querySelector(
 
 export const textarea = document.querySelector(".textarea");
 export const btnSend = document.querySelector(".btn-send");
-export const suggestions = document.querySelectorAll(".suggestion-chip");
+export const btnSuggestions = document.querySelectorAll(".suggestion-chip");
 
 export const btnTabs = document.querySelectorAll(".btn-tab");
 export const btnTab = document.querySelector(".btn-tab");

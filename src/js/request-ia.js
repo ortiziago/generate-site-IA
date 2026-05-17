@@ -9,6 +9,7 @@ import {
   textarea,
   iframePreview,
   btnTab,
+  btnSuggestions,
 } from "./global-variables.js";
 
 btnCopy.disabled = true;
@@ -26,6 +27,9 @@ async function generateCode() {
   try {
     btnSend.classList.add("loading");
     btnSend.disabled = true;
+    btnSuggestions.forEach((btn) => {
+      btn.disabled = true;
+    });
 
     const response = await fetch("http://localhost:3000/generate", {
       method: "POST",
@@ -53,7 +57,16 @@ async function generateCode() {
     btnTab.scrollIntoView({
       block: "start",
     });
-    previewPlaceholder.classList.remove("active");
+  } catch (e) {
+    console.log("Erro:", e);
+    alert("Erro ao gerar código");
+  } finally {
+    btnSend.classList.remove("loading");
+    btnSend.disabled = false;
+
+    btnSuggestions.forEach((btn) => {
+      btn.disabled = false;
+    });
 
     btnCopy.classList.add("active");
     btnCopy.disabled = false;
@@ -66,12 +79,8 @@ async function generateCode() {
       btn.disabled = false;
     });
     btnDesktop.classList.add("active");
-  } catch (e) {
-    console.log("Erro:", e);
-    alert("Erro ao gerar código");
-  } finally {
-    btnSend.classList.remove("loading");
-    btnSend.disabled = false;
+
+    previewPlaceholder.classList.remove("active");
   }
 }
 

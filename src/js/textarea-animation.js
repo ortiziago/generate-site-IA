@@ -1,4 +1,4 @@
-import { textarea, btnSend, suggestions } from "./global-variables.js";
+import { textarea, btnSend, btnSuggestions } from "./global-variables.js";
 
 function autoResizeAndBtnBlocked() {
   textarea.style.height = "auto";
@@ -18,10 +18,20 @@ textarea.addEventListener("input", () => {
   autoResizeAndBtnBlocked();
 });
 
-suggestions.forEach((chip) => {
-  chip.addEventListener("click", () => {
-    const promptChip = chip.getAttribute("data-prompt");
-    textarea.value = promptChip;
+btnSuggestions.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (btn.classList.contains("active")) {
+      btn.classList.remove("active");
+      textarea.value = "";
+    } else {
+      btnSuggestions.forEach((item) => {
+        item.classList.remove("active");
+      });
+
+      btn.classList.add("active");
+      const promptChip = btn.getAttribute("data-prompt");
+      textarea.value = promptChip;
+    }
     autoResizeAndBtnBlocked();
   });
 });

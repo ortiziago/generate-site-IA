@@ -348,6 +348,12 @@ body {
   background-color: var(--blue-hover);
 }
 
+.suggestions .suggestion-chip.active {
+  transform: translateY(-3px);
+  border-color: var(--blue-900);
+  background-color: var(--blue-hover);
+}
+
 .features {
   padding: 80px 0;
   text-align: center;
