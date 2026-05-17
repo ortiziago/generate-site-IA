@@ -12,7 +12,8 @@ export const btnTabs = document.querySelectorAll(".btn-tab");
 export const btnTab = document.querySelector(".btn-tab");
 export const tabContents = document.querySelectorAll(".tab-content");
 
-export const btnDevice = document.querySelectorAll(".btn-device");
+export const btnDevices = document.querySelectorAll(".btn-device");
+export const btnDesktop = document.querySelector(".btn-desktop");
 export const btnMobile = document.querySelector(".btn-mobile");
 export const responsiveOptions = document.querySelector(".responsive-options");
 

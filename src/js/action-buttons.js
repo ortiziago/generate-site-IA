@@ -13,6 +13,7 @@ import { lastResult } from "./request-ia.js";
 
 function showSucess() {
   btnCopy.disabled = true;
+  btnCopy.innerHTML = checkIcon;
   btnCopy.classList.add("copied");
 
   setTimeout(() => {

@@ -4,7 +4,8 @@ import {
   btnSend,
   codeOutput,
   previewPlaceholder,
-  btnDevice,
+  btnDevices,
+  btnDesktop,
   textarea,
   iframePreview,
   btnTab,
@@ -12,6 +13,9 @@ import {
 
 btnCopy.disabled = true;
 btnRefresh.disabled = true;
+btnDevices.forEach((btn) => {
+  btn.disabled = true;
+});
 export let lastResult;
 
 async function generateCode() {
@@ -57,9 +61,11 @@ async function generateCode() {
     btnRefresh.classList.add("active");
     btnRefresh.disabled = false;
 
-    btnDevice.forEach((btn) => {
-      btn.classList.add("pointer-active");
+    btnDevices.forEach((btn) => {
+      btn.classList.add("unlocked");
+      btn.disabled = false;
     });
+    btnDesktop.classList.add("active");
   } catch (e) {
     console.log("Erro:", e);
     alert("Erro ao gerar código");

@@ -1,7 +1,7 @@
 import {
   iframePreview,
   state,
-  btnDevice,
+  btnDevices,
   responsiveOptions,
   btnMobile,
 } from "./global-variables.js";
@@ -20,9 +20,9 @@ function changeSize() {
   }
 }
 
-btnDevice.forEach((btn) => {
+btnDevices.forEach((btn) => {
   btn.addEventListener("click", () => {
-    btnDevice.forEach((item) => {
+    btnDevices.forEach((item) => {
       item.classList.remove("active");
     });
     responsiveOptions.classList.remove("active");
