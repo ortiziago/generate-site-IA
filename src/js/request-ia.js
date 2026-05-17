@@ -1,10 +1,13 @@
 import { textarea, btnSend } from "./textarea-animation.js";
+import { btnCopy, btnRefresh } from "./action-buttons.js";
 
-const codeOutput = document.getElementById("codeOutput");
+export const codeOutput = document.getElementById("codeOutput");
 const iframePreview = document.querySelector(".iframePreview");
 const btnTab = document.querySelector(".btn-tab");
 
 const previewPlaceholder = document.querySelector(".preview-placeholder");
+
+btnCopy.disabled = true;
 
 async function generateCode() {
   const userPrompt = textarea.value.trim();
@@ -40,6 +43,8 @@ async function generateCode() {
       block: "start",
     });
     previewPlaceholder.classList.remove("active");
+    btnCopy.classList.add("active");
+    btnCopy.disabled = false;
   } catch (e) {
     console.log("Erro:", e);
     alert("Erro ao gerar código");
