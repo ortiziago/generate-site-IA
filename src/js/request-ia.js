@@ -1,5 +1,6 @@
 import {
   btnCopy,
+  btnRefresh,
   btnSend,
   codeOutput,
   previewPlaceholder,
@@ -10,6 +11,8 @@ import {
 } from "./global-variables.js";
 
 btnCopy.disabled = true;
+btnRefresh.disabled = true;
+export let lastResult;
 
 async function generateCode() {
   const userPrompt = textarea.value.trim();
@@ -38,6 +41,8 @@ async function generateCode() {
 
     const result = data.result;
 
+    lastResult = result;
+
     codeOutput.textContent = result;
     iframePreview.srcdoc = result;
 
@@ -48,6 +53,9 @@ async function generateCode() {
 
     btnCopy.classList.add("active");
     btnCopy.disabled = false;
+
+    btnRefresh.classList.add("active");
+    btnRefresh.disabled = false;
 
     btnDevice.forEach((btn) => {
       btn.classList.add("pointer-active");

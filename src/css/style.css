@@ -690,6 +690,20 @@ body {
   border: 1px solid var(--feature-green-color) !important;
 }
 
+.btn-refresh.reloading {
+  pointer-events: none;
+}
+
+.btn-refresh.reloading i {
+  animation: reloading 0.5s linear forwards;
+}
+
+@keyframes reloading {
+  to {
+    transform: rotate(180deg);
+  }
+}
+
 .tab-content .code-body {
   overflow-y: auto;
   padding: 0 100px;
@@ -742,6 +756,20 @@ body {
 
 .preview-placeholder.active {
   display: flex;
+}
+
+.preview-reloading.active:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border: 5px solid var(--white);
+  border-radius: 50%;
+  border-top: 2px solid transparent;
+  animation: btnSendSpin 0.8s linear infinite;
 }
 
 .iframePreview {

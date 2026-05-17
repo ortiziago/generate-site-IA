@@ -1,4 +1,15 @@
-import { btnCopy, state } from "./global-variables.js";
+import {
+  btnCopy,
+  originIcon,
+  checkIcon,
+  btnRefresh,
+  previewReloading,
+  refreshIcon,
+  iframePreview,
+  state,
+} from "./global-variables.js";
+
+import { lastResult } from "./request-ia.js";
 
 function showSucess() {
   btnCopy.disabled = true;
@@ -24,4 +35,18 @@ btnCopy.addEventListener("click", async () => {
   } finally {
     state.isCopying = false;
   }
+});
+
+btnRefresh.addEventListener("click", () => {
+  iframePreview.srcdoc = "";
+  btnRefresh.classList.add("reloading");
+  btnRefresh.innerHTML = `${refreshIcon} Recarregando`;
+  previewReloading.classList.add("active");
+
+  setTimeout(() => {
+    previewReloading.classList.remove("active");
+    btnRefresh.classList.remove("reloading");
+    btnRefresh.innerHTML = `${refreshIcon} Recarregar`;
+    iframePreview.srcdoc = lastResult;
+  }, 2000);
 });

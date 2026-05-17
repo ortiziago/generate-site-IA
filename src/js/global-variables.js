@@ -17,17 +17,20 @@ export const btnMobile = document.querySelector(".btn-mobile");
 export const responsiveOptions = document.querySelector(".responsive-options");
 
 export const btnCopy = document.querySelector(".btn-copy");
-export const btnRefresh = document.querySelector(".btn-refresh");
-
-export const dotGlow = document.querySelector(".dot-glow");
-
 export const originIcon = `
   <i class="fa-regular fa-copy"></i> Copiar
 `;
-
 export const checkIcon = `
   <i class="fa-solid fa-check"></i> Copiado
 `;
+
+export const btnRefresh = document.querySelector(".btn-refresh");
+export const previewReloading = document.querySelector(".preview-reloading");
+export const refreshIcon = `
+  <i class="fa-solid fa-arrows-rotate"></i>
+`;
+
+export const dotGlow = document.querySelector(".dot-glow");
 
 export const message = document.querySelector(".message");
 export const messageTitle = document.querySelector(".message-title");
