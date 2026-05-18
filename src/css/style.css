@@ -14,6 +14,17 @@
   --blue-50: rgba(37, 99, 235, 0.5);
   --blue-70: rgba(37, 99, 235, 0.7);
 
+  --gray: #71717a;
+  --gray-900: #111827;
+  --gray-10: rgba(161, 161, 170, 0.1);
+
+  --white-03: rgba(255, 255, 255, 0.03);
+  --white-05: rgba(255, 255, 255, 0.05);
+  --white-08: rgba(255, 255, 255, 0.08);
+
+  --green-30: rgba(16, 185, 129, 0.3);
+  --green-70: rgba(16, 185, 129, 0.7);
+
   --red-100: #f87171;
   --red-500: #dc2626;
   --red-900: #7f1d1d;
@@ -25,22 +36,11 @@
   --color-text-gray-light: #f0f0f5;
   --color-text-gray: #9494a8;
 
-  --gray: #71717a;
-  --gray-900: #111827;
-  --gray-10: rgba(161, 161, 170, 0.1);
-
-  --white-03: rgba(255, 255, 255, 0.03);
-  --white-05: rgba(255, 255, 255, 0.05);
-  --white-08: rgba(255, 255, 255, 0.08);
-
-  --green-03: rgba(16, 185, 129, 0.03);
-  --green-05: rgba(16, 185, 129, 0.05);
-  --green-08: rgba(16, 185, 129, 0.08);
-
   --bg-textarea-card: rgba(15, 23, 42, 0.9);
   --bg-button: rgba(15, 23, 42, 0.8);
   --bg-color-body: #050816;
   --bg-tab-content-header: rgba(0, 0, 0, 0.2);
+  --bg-select-option: #1f2937;
 
   --bg-dot-red: #ef4444;
   --bg-dot-yellow: #f59e0b;
@@ -766,7 +766,9 @@ body {
   padding: 10px 14px;
   border-radius: 10px;
   height: 40px;
-  color: var(--black-900);
+  color: var(--white);
+  background-color: var(--white-05);
+  border: 1px solid var(--border-color);
   font-weight: 500;
 }
 
@@ -774,6 +776,9 @@ body {
   display: flex;
 }
 
+.responsive-options option {
+  background: var(--bg-select-option);
+}
 .tab-content-header .name-tab {
   display: flex;
   justify-content: center;
@@ -841,13 +846,16 @@ body {
 }
 
 .btn-copy.copied {
-  color: var(--feature-green-color) !important;
-  background-color: var(--feature-green-bg) !important;
-  border: 1px solid var(--feature-green-color) !important;
+  color: var(--green-70) !important;
+  background-color: var(--green-30) !important;
+  border: 1px solid var(--green-70) !important;
 }
 
 .btn-refresh.reloading {
   pointer-events: none;
+  background-color: var(--blue-15) !important;
+  border: 1px solid var(--blue-05) !important;
+  color: var(--white) !important;
 }
 
 .btn-refresh.reloading i {
