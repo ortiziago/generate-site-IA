@@ -12,6 +12,8 @@ import {
   btnSuggestions,
 } from "./global-variables.js";
 
+import { showMessage } from "./message.js";
+
 btnCopy.disabled = true;
 btnRefresh.disabled = true;
 btnDevices.forEach((btn) => {
@@ -54,16 +56,6 @@ async function generateCode() {
     codeOutput.textContent = result;
     iframePreview.srcdoc = result;
 
-    btnTab.scrollIntoView({
-      block: "start",
-    });
-  } catch (e) {
-    console.log("Erro:", e);
-    alert("Erro ao gerar código");
-  } finally {
-    btnSend.classList.remove("loading");
-    btnSend.disabled = false;
-
     btnSuggestions.forEach((btn) => {
       btn.disabled = false;
     });
@@ -81,6 +73,16 @@ async function generateCode() {
     btnDesktop.classList.add("active");
 
     previewPlaceholder.classList.remove("active");
+
+    btnTab.scrollIntoView({
+      block: "start",
+    });
+  } catch (e) {
+    console.log("Erro:", e);
+    showMessage("Erro:", "Erro ao gerar código.");
+  } finally {
+    btnSend.classList.remove("loading");
+    btnSend.disabled = false;
   }
 }
 

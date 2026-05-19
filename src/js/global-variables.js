@@ -34,11 +34,12 @@ export const refreshIcon = `
 export const dotGlow = document.querySelector(".dot-glow");
 
 export const message = document.querySelector(".message");
-export const messageTitle = document.querySelector(".message-title");
+export const messageTitle = document.querySelector(".message-title .title");
 export const messageDescription = document.querySelector(
   ".message-description",
 );
-export const messageTime = document.querySelector(".message-time");
+export const messageProgress = document.querySelector(".message-progress");
+export const messageClose = document.querySelector(".message-close");
 
 export const state = {
   isCopying: false,
@@ -49,4 +50,6 @@ export const state = {
   mouseY: 0,
   distanceDotGlowX: 0,
   distanceDotGlowY: 0,
+
+  timeout: 0,
 };
