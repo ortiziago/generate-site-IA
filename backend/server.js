@@ -9,6 +9,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("API ONLINE");
+});
+
 const adress = "https://api.groq.com/openai/v1/chat/completions";
 const APIKey = process.env.GROQ_API_KEY;
 
@@ -169,7 +173,7 @@ OBJETIVO FINAL:
 Gerar um site extremamente bonito, moderno, premium, totalmente responsivo, organizado profissionalmente e com aparência real de projeto de agência.
 `;
 
-app.post("/generate", async (req, res) => {
+app.post("/", async (req, res) => {
   try {
     const { prompt } = req.body;
 
@@ -212,6 +216,8 @@ app.post("/generate", async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log("Servidor rodando em http://localhost:3000");
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
 });
