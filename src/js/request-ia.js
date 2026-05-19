@@ -33,15 +33,18 @@ async function generateCode() {
       btn.disabled = true;
     });
 
-    const response = await fetch("https://generate-site-ia.onrender.com", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    const response = await fetch(
+      "https://generate-site-ia.onrender.com/generate",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          prompt: userPrompt,
+        }),
       },
-      body: JSON.stringify({
-        prompt: userPrompt,
-      }),
-    });
+    );
 
     if (!response.ok) {
       throw new Error("Erro na API");
