@@ -33,7 +33,7 @@ async function generateCode() {
       btn.disabled = true;
     });
 
-    const response = await fetch("http://localhost:3000/generate", {
+    const response = await fetch("https://generate-site-ia.onrender.com", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

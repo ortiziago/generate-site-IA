@@ -1,5 +1,25 @@
 {
   "dependencies": {
-    "@google/generative-ai": "^0.24.1"
-  }
+    "@google/generative-ai": "^0.24.1",
+    "express": "^5.2.1"
+  },
+  "name": "site_generate_ia",
+  "version": "1.0.0",
+  "description": "Plataforma web com IA para geração de layouts front-end em HTML, CSS e JavaScript puro, com visualização simultânea do código e preview em tempo real.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ortiziago/generate-site-IA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ortiziago/generate-site-IA/issues"
+  },
+  "homepage": "https://github.com/ortiziago/generate-site-IA#readme"
 }
